@@ -85,7 +85,9 @@
     }
 
     function formatDateToISO(dateString: any) {
-        const date = new Date(dateString);
+        const regex = /^(\d{4}-\d{2}-\d{2})/;
+        const match = dateString.match(regex);
+        const date = new Date(match[1]);
         const userLocale = navigator.language;
         return date.toLocaleDateString(userLocale, {day: '2-digit', month: '2-digit', year: 'numeric'});
     }

@@ -89,7 +89,9 @@
     }
 
     function checkUpdate(updated: string) {
-        const referenceDate: any = new Date(updated);
+        const regex = /^(\d{4}-\d{2}-\d{2})/;
+        const match = updated.match(regex);
+        const referenceDate: any = new Date(match[1]);
 
         const currentDate: any = new Date();
 
